@@ -660,6 +660,7 @@ GameObject:
   m_Component:
   - component: {fileID: 489861382}
   - component: {fileID: 489861381}
+  - component: {fileID: 489861383}
   m_Layer: 0
   m_Name: "\u6703\u52D5\u7684\u8349\u4E2D"
   m_TagString: Untagged
@@ -732,6 +733,25 @@ Transform:
   m_Father: {fileID: 495390389}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &489861383
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 489861380}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c9b567f2423b24928b4ea82f74b89e1c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &495390388
 GameObject:
   m_ObjectHideFlags: 0
@@ -1363,6 +1383,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1096677127}
   - component: {fileID: 1096677126}
+  - component: {fileID: 1096677128}
   m_Layer: 0
   m_Name: "\u6703\u52D5\u7684\u8349\u4E2D3"
   m_TagString: Untagged
@@ -1435,6 +1456,25 @@ Transform:
   m_Father: {fileID: 495390389}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1096677128
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1096677125}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 947561bf0e96a45ad8fbfc81dff0d4cd, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1103248889
 GameObject:
   m_ObjectHideFlags: 0
@@ -1445,6 +1485,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1103248891}
   - component: {fileID: 1103248890}
+  - component: {fileID: 1103248892}
   m_Layer: 0
   m_Name: "\u6703\u52D5\u7684\u8349\u4E2D4"
   m_TagString: Untagged
@@ -1517,6 +1558,25 @@ Transform:
   m_Father: {fileID: 495390389}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1103248892
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1103248889}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fb61cc66800bf412ea5c899823e2d879, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1120131826
 GameObject:
   m_ObjectHideFlags: 0
@@ -1527,6 +1587,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1120131828}
   - component: {fileID: 1120131827}
+  - component: {fileID: 1120131829}
   m_Layer: 0
   m_Name: "\u6703\u52D5\u7684\u8349\u4E2D1"
   m_TagString: Untagged
@@ -1593,12 +1654,31 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1120131826}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.4708514, y: -0.090325356, z: 1.0176127}
+  m_LocalPosition: {x: 0.7, y: -2.86, z: 1.0176127}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 495390389}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1120131829
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1120131826}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4aa0bb148d07d47789534edf8cc832d3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1140463269
 GameObject:
   m_ObjectHideFlags: 0
@@ -1810,6 +1890,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1204455534}
   - component: {fileID: 1204455533}
+  - component: {fileID: 1204455535}
   m_Layer: 0
   m_Name: "\u6703\u52D5\u7684\u8349\u4E2D2"
   m_TagString: Untagged
@@ -1882,6 +1963,25 @@ Transform:
   m_Father: {fileID: 495390389}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1204455535
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1204455532}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ac199781fffac49078ba747de6bf14be, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1252609143
 GameObject:
   m_ObjectHideFlags: 0
@@ -2385,7 +2485,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1664124250}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.7435093, y: 0.36903524, z: 0.91549015}
+  m_LocalPosition: {x: 9.09, y: 0.36903524, z: 0.91549015}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 12004184}
