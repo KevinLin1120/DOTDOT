@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: de915f094cd7742d39147d6b0a44afe7
+guid: 88911e437a6e149f3bc873afae449775
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,6 +123,12 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites: []
+    outline: []
+    physicsShape: []
+    bones: []
     spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
