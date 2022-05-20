@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 92352f5f0848c204e835ae49d84f1a47
+guid: dd6abc118e7734cd1a7fd65d400a7f3d
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -45,9 +45,9 @@ TextureImporter:
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 9
-  spritePivot: {x: 0.7859875, y: 0.5200896}
+  spritePivot: {x: 0.73209316, y: 0.39800647}
   spritePixelsToUnits: 100
-  spriteBorder: {x: 1402, y: 481, z: 299, w: 437}
+  spriteBorder: {x: 1299, y: 361, z: 409, w: 579}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -77,6 +77,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
