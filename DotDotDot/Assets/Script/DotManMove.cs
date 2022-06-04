@@ -7,7 +7,7 @@ public class DotManMove : MonoBehaviour
    
     public float moveSpeed = 3; //速度
      private Vector3 v;
-    private bool facingRight = true; //儲存DotMan的方向
+    private bool facingRight = false; //儲存DotMan的方向
     private Animator DotMan1Anim; //DotMan動畫物件
     private CharacterController DotDotMan; //DotMan腳色組件
 
