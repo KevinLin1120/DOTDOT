@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public GameObject LBall, RBall, AnsBall; //Balls in nav
     public GameObject[] balls; //red ora yel gre blu pur whi
     public Sprite[] ans;
+    private bool isSetL = false, isSetR = false; //L/R ball's statements
 
     // Start is called before the first frame update
     void Start()
@@ -30,7 +31,40 @@ public class GameManager : MonoBehaviour
     {
         
     }
+
+    //When dot man hit the color ball
+    public void triggerBall(Collider2D ball)
+    {
+        //Debug.Log(ball.gameObject.GetComponent<SpriteRenderer>().sprite.name);
+        if(ball.gameObject.GetComponent<SpriteRenderer>().sprite.name == "w")
+        {
+            RBall.GetComponent<SpriteRenderer>().color = new Color32(255, 255, 255, 255);
+            LBall.GetComponent<SpriteRenderer>().color = new Color32(255, 255, 255, 255);
+        }
+        else
+        {
+            if (isSetL)
+            {
+                RBall.GetComponent<SpriteRenderer>().color = new Color32(255, 255, 255, 255);
+                RBall.GetComponent<SpriteRenderer>().sprite =
+                    ball.gameObject.GetComponent<SpriteRenderer>().sprite;
+                isSetR = true;
+            }
+            else
+            {
+                LBall.GetComponent<SpriteRenderer>().color = new Color32(255, 255, 255, 255);
+                LBall.GetComponent<SpriteRenderer>().sprite =
+                    ball.gameObject.GetComponent<SpriteRenderer>().sprite;
+                isSetL = true;
+            }
+        }
+    }
+    public void hitFan()
+    {
+
+    }
 }
+
 //using System.Collections;
 //using System.Collections.Generic;
 //using UnityEngine;

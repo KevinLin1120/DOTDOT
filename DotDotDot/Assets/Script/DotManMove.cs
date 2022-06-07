@@ -4,13 +4,11 @@ using UnityEngine;
 
 public class DotManMove : MonoBehaviour
 {
-
+    public GameManager gameManager;
     public float moveSpeed = 3; //速度
     private Vector3 v;
     private bool facingRight = false; //儲存DotMan的方向
     private Animator DotMan1Anim; //DotMan動畫物件
-    //===========
-    //private CharacterController DotDotMan; //DotMan腳色組件
     private Rigidbody2D DotDotMan; //DotMan腳色組件
 
     public float minPosX = -8.62f;
@@ -22,8 +20,6 @@ public class DotManMove : MonoBehaviour
     void Start()
     {
         DotMan1Anim = GameObject.Find("DotMan").GetComponent<Animator>();
-        //=============
-        //DotDotMan = GameObject.Find("DotMan").GetComponent<CharacterController>(); //取得DotDotMan角色控制器
         DotDotMan = GameObject.Find("DotMan").GetComponent<Rigidbody2D>(); //取得DotDotMan角色控制器
     }
 
@@ -53,8 +49,7 @@ public class DotManMove : MonoBehaviour
             v = Vector3.zero; //歸零Vector3(0,0,0) 不動
         }
 
-        //==========
-        //DotDotMan.Move(v*Time.deltaTime); //每秒的移動
+
         DotDotMan.velocity = v * Time.deltaTime;
         // DotDotMan.Move(newPos); //每秒的移動
 
@@ -80,6 +75,13 @@ public class DotManMove : MonoBehaviour
         Vector3 scale = DotDotMan.transform.localScale; //取得物件尺寸
         scale.x *= -1; //將x設為-1 (-1,0,0)
         DotDotMan.transform.localScale = scale; //傳回轉向值
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "ball")
+        {
+            gameManager.triggerBall(collision);
+        }
     }
 }
 
