@@ -33,8 +33,8 @@ public class DotManMove : MonoBehaviour
         if (Input.GetKey(KeyCode.RightArrow)) //向右走的按鍵被按下時
         {
             v = Vector3.right * moveSpeed; //移動只需要往右並且帶上水平的移動速度Vector3(1,0,0)
-                                           // newPos =(Mathf.Clamp( v*Time.deltaTime, minPosX, maxPosX),0,0);
-                                           // newPos =(Mathf.Clamp(DotDotMan.X + (moveSpeed*Time.deltaTime), minPosX, maxPosX), DotDotMan.Y, DotDotMan.Z);
+            // newPos =(Mathf.Clamp( v*Time.deltaTime, minPosX, maxPosX),0,0);
+            // newPos =(Mathf.Clamp(DotDotMan.X + (moveSpeed*Time.deltaTime), minPosX, maxPosX), DotDotMan.Y, DotDotMan.Z);
         }
         else if (Input.GetKey(KeyCode.LeftArrow)) //向左走的按鍵被按下時
         {
