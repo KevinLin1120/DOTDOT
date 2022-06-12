@@ -2,86 +2,214 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class thirdDotManMove : MonoBehaviour
+public class ThirdDotManMove : MonoBehaviour
 {
-    public float runSpeed = 200; //奔跑速度
-    public float jumpSpeed = 100; //跳躍速度
-    public float gravity = 3; //重力
-    private Vector2 v; //儲存速度
-    // private bool facingRight = false; //儲存的方向
+
+    [SerializeField] private LayerMask borderdownLayerMask;
+
     private Animator DotManAnim; //動畫物件
-    private Rigidbody2D DotDotMan; //DotMan腳色組件
-    bool Grounded = false ;
+    private Rigidbody2D rigidbody2d; //DotMan腳色組件
+    private BoxCollider2D boxCollider2d;
+    public GameState gameState;
+    
 
     
-    void Start()
+    private void Start()
     {
         DotManAnim = GameObject.Find("DotMan").GetComponent<Animator>();
-        DotDotMan = GameObject.Find("DotMan").GetComponent<Rigidbody2D>(); //取得DotDotMan角色控制器
+        rigidbody2d = transform.GetComponent<Rigidbody2D>();
+         boxCollider2d = transform.GetComponent<BoxCollider2D>();
        
     }
-
-    private void OnTriggerStay2D(Collider2D collision)
+  
+    private void Update()
     {
-        if(collision.gameObject.tag == "borderdown")
+       if(IsGrounded() && Input.GetKey(KeyCode.Space)) 
         {
-           Grounded = true;
-           Debug.Log("1123");
+           float jumpVelocity = 100f;
+           rigidbody2d.velocity = Vector2.up * jumpVelocity;
         }
-    }
 
-    
-    void Update()
-    {
-        movement();
-
-        DotManAnim.SetFloat("vSpeed",v.y); //設定Vector2的值為("vSpeed",v.y,)
-        DotManAnim.SetFloat("hSpeed",v.x); //設定Vector2的值為("hSpeed",Mathf.Abs(v.x)) note:Mathf.Abs()取絕對值 左右移動是有負值
-        // DotDotMan.Move(v*Time.deltaTime); //每秒的移動
-        DotDotMan.velocity = v * Time.deltaTime;
+        // DotManAnim.SetFloat("vSpeed",v.y); //設定Vector2的值為("vSpeed",v.y,)
+        // DotManAnim.SetFloat("hSpeed",v.x); //設定Vector2的值為("hSpeed",Mathf.Abs(v.x)) note:Mathf.Abs()取絕對值 左右移動是有負值
+        // // DotDotMan.Move(v*Time.deltaTime); //每秒的移動
+        // DotDotMan.velocity = v * Time.deltaTime;
 
         
     }
 
-    private void movement()
+    private void FixedUpdate()
     {
-        if(Grounded = true) //在地面上
+       float moveSpeed = 40f;
+       rigidbody2d.constraints = RigidbodyConstraints2D.FreezeRotation;
+       if(Input.GetKey(KeyCode.RightArrow)) 
         {
-            DotManAnim.SetBool("isGround" , true); //開啟動畫條件 isGround = true
-            //在地面,右移動,跳躍,靜止
-            if(Input.GetKey(KeyCode.RightArrow)) //向右走的按鍵被按下時
-            {
-                if(Input.GetKey(KeyCode.Space)) //當空白鍵也觸發跳躍時
-                {
-                    v = new Vector2(runSpeed,jumpSpeed); //設定腳色的移動速度是需要包含向上跳躍的力道
-                }
-                else //如果沒有跳躍
-                {
-                    v = Vector2.right* runSpeed; //移動只需要往右並且帶上水平的移動速度
-                    // v = new Vector2(runSpeed,0);
-                }
-            }
-            else if(Input.GetKey(KeyCode.Space)) //只有按下空白鍵
-            {
-                v = Vector2.up*jumpSpeed;//成上垂直的力量
-                //  v = new Vector2(0,jumpSpeed);
-            }
-            else 
-            {
-                v = Vector2.zero; //歸零 不動
-                //  v = new Vector2(0,0);
-            }
+           rigidbody2d.velocity =new Vector2(+moveSpeed, rigidbody2d.velocity.y);
         }
         else
         {
-            v.y -= gravity; //y值為 -gravity
-            DotManAnim.SetBool("isGround",false); //設定isGround的動畫條件為false
+           rigidbody2d.velocity =new Vector2(0, rigidbody2d.velocity.y);
+        //    rigidbody2d.constraints =RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
         }
+        
+    }
+
+
+
+    private bool IsGrounded() {
+
+
+        // return transform.Find("GroundCheck").GetComponent<GroundCheck>().isGrounded;
+        float extraHeightText = 1f;
+        RaycastHit2D raycastHit = Physics2D.BoxCast( boxCollider2d.bounds.center,boxCollider2d.bounds.size, 0f, Vector2.down, extraHeightText, borderdownLayerMask); 
+        Color rayColor;
+        if (raycastHit.collider != null){
+            Debug.Log(raycastHit.collider);
+            rayColor = Color.green;
+        }else{
+            rayColor = Color.red;
+        }
+        Debug.DrawRay( boxCollider2d.bounds.center+new Vector3(boxCollider2d.bounds.extents.x,0), Vector2.down * ( boxCollider2d.bounds.extents.y + extraHeightText) ,rayColor);
+        Debug.DrawRay( boxCollider2d.bounds.center+new Vector3(boxCollider2d.bounds.extents.x,0), Vector2.down * ( boxCollider2d.bounds.extents.y + extraHeightText),rayColor); 
+        Debug.DrawRay( boxCollider2d.bounds.center+new Vector3(boxCollider2d.bounds.extents.x, boxCollider2d.bounds.extents.y + extraHeightText), Vector2.right * ( boxCollider2d.bounds.extents.x + extraHeightText),rayColor);  
+        // Debug.Log(raycastHit.collider);
+        return raycastHit.collider != null;
+    }
+
+    private void PlayAnimations(bool isGrounded){
+        
+        
+        
+        //根據不同狀態設置Animator參數來切換狀態
+        switch (gameState)
+        {
+            case GameState.runRight:
+                DotManAnim.SetBool("ReadyToRun",true);
+                DotManAnim.SetBool("RunToJump",false);
+                break;
+            case GameState.readyJump:
+            case GameState.jumpRight:
+                DotManAnim.SetBool("ReadyToJump",true);
+                DotManAnim.SetBool("RunToJump",true);
+                break;  
+            default:
+               DotManAnim.SetBool("ReadyToRun",false);
+                DotManAnim.SetBool("ReadyToJump",false);
+                break;  
+        }
+
     }
 
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// using System.Collections;
+// using System.Collections.Generic;
+// using UnityEngine;
+
+// public class ThirdDotManMove : MonoBehaviour
+// {
+//     public float runSpeed = 200; //奔跑速度
+//     public float jumpSpeed = 100; //跳躍速度
+//     public float gravity = 0; //重力
+//     private Vector3 v; //儲存速度
+//     // private bool facingRight = false; //儲存的方向
+//     private Animator DotManAnim; //動畫物件
+//     private Rigidbody2D DotDotMan; //DotMan腳色組件
+//     bool Grounded = false ;
+
+    
+//     void Start()
+//     {
+//         DotManAnim = GameObject.Find("DotMan").GetComponent<Animator>();
+//         DotDotMan = GameObject.Find("DotMan").GetComponent<Rigidbody2D>(); //取得DotDotMan角色控制器
+       
+//     }
+
+//     private void OnTriggerStay2D(Collider2D collision)
+//     {
+//         if(collision.gameObject.tag == "borderdown")
+//         {
+//            Grounded = true;
+//            Debug.Log("1123");
+//         }
+//     }
+
+    
+//     void Update()
+//     {
+//         movement();
+
+//         DotManAnim.SetFloat("vSpeed",v.y); //設定Vector2的值為("vSpeed",v.y,)
+//         DotManAnim.SetFloat("hSpeed",v.x); //設定Vector2的值為("hSpeed",Mathf.Abs(v.x)) note:Mathf.Abs()取絕對值 左右移動是有負值
+//         // DotDotMan.Move(v*Time.deltaTime); //每秒的移動
+//         DotDotMan.velocity = v * Time.deltaTime;
+
+        
+//     }
+
+//     private void movement()
+//     {
+//         if(Grounded = true) //在地面上
+//         {
+//             DotManAnim.SetBool("isGround" , true); //開啟動畫條件 isGround = true
+//             //在地面,右移動,跳躍,靜止
+//             if(Input.GetKey(KeyCode.RightArrow)) //向右走的按鍵被按下時
+//             {
+//                 if(Input.GetKey(KeyCode.Space)) //當空白鍵也觸發跳躍時
+//                 {
+//                     v = new Vector3(runSpeed,jumpSpeed,0); //設定腳色的移動速度是需要包含向上跳躍的力道
+//                 }
+//                 else //如果沒有跳躍
+//                 {
+//                     v = Vector3.right* runSpeed; //移動只需要往右並且帶上水平的移動速度
+//                     // v = new Vector2(runSpeed,0);
+//                 }
+//             }
+//             else if(Input.GetKey(KeyCode.Space)) //只有按下空白鍵
+//             {
+//                 v = Vector3.up*jumpSpeed;//成上垂直的力量
+//                 //  v = new Vector2(0,jumpSpeed);
+//             }
+//             else 
+//             {
+//                 v = Vector3.zero; //歸零 不動
+//                 //  v = new Vector2(0,0);
+//             }
+//         }
+//         else
+//         {
+//             v.y -= gravity; //y值為 -gravity
+//             DotManAnim.SetBool("isGround",false); //設定isGround的動畫條件為false
+//         }
+//     }
+
+// }
 //////////////////////////////////////////原本
 
 //  void Update()
