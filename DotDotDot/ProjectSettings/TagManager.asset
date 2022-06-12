@@ -4,10 +4,15 @@
 TagManager:
   serializedVersion: 2
   tags:
+
   - ball
   - btn
   - tree
   - fan
+
+  - borderup
+  - borderdown
+
   layers:
   - Default
   - TransparentFX
