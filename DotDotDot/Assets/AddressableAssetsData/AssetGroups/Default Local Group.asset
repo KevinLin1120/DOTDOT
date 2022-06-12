@@ -41,10 +41,6 @@ MonoBehaviour:
     m_Address: "Assets/\u95DC\u5361\u4E00/\u7D2B\u8272\u7403.png"
     m_ReadOnly: 0
     m_SerializedLabels: []
-  - m_GUID: 91683d53b83b44b45b92eddabb0f22cb
-    m_Address: "Assets/\u95DC\u5361\u4E00/\u767D\u8272\u7403.png"
-    m_ReadOnly: 0
-    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 2ac01eb5a81b24d6da0a64b061a606e5, type: 2}
   m_SchemaSet:
