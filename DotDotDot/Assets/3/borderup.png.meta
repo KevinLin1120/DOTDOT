@@ -1,16 +1,10 @@
 fileFormatVersion: 2
-guid: e76685369c0564d808f310ef4a2e98af
+guid: 67957a1af883c4d89888c0daca11b79f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -9166084717782916886
-    second: 1.2_0
-  - first:
-      213: -6475228662859671210
-    second: 1.2_1
-  - first:
-      213: -2243135437873239949
-    second: 1.2_2
+      213: 4784601054383227526
+    second: borderup_0
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -124,13 +118,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 1.2_0
+      name: borderup_0
       rect:
         serializedVersion: 2
-        x: 3832
-        y: 824
-        width: 11
-        height: 8
+        x: 0
+        y: 788
+        width: 7680
+        height: 285
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -138,50 +132,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ae0a96f53868bc080800000000000000
-      internalID: -9166084717782916886
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 1.2_1
-      rect:
-        serializedVersion: 2
-        x: 3852
-        y: 822
-        width: 15
-        height: 10
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 65952de96dd5326a0800000000000000
-      internalID: -6475228662859671210
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 1.2_2
-      rect:
-        serializedVersion: 2
-        x: 3838
-        y: 429
-        width: 176
-        height: 353
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 378a9723438ced0e0800000000000000
-      internalID: -2243135437873239949
+      spriteID: 682c87e1f41566240800000000000000
+      internalID: 4784601054383227526
       vertices: []
       indices: 
       edges: []
